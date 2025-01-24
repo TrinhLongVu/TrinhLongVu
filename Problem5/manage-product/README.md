@@ -22,24 +22,25 @@ The API documentation is available through Swagger UI at `/api-docs` when the ap
 
 ## 📚 API Endpoints
 
-### Books
+### products
 
-| Method | Endpoint     | Description      | Request Body |
-|--------|-------------|------------------|--------------|
-| POST   | /books      | Create book      | Book object  |
-| GET    | /books      | List all books   | -            |
-| GET    | /books/:id  | Get single book  | -            |
-| PUT    | /books/:id  | Update book      | Book object  |
-| DELETE | /books/:id  | Delete book      | -            |
+| Method | Endpoint       | Description         | Request Body    |
+|--------|----------------|---------------------|-----------------|
+| POST   | /products      | Create product      | Product object  |
+| GET    | /products      | List all products   | -               |
+| GET    | /products/:id  | Get single product  | -               |
+| PUT    | /products/:id  | Update product      | Product object  |
+| DELETE | /products/:id  | Delete product      | -               |
+
 
 ### Book Object Structure
 
 ```json
 {
-"title": "string",
-"author": "string",
-"publishYear": number,
-"genre": "string"
+  "name": "string",
+  "description": "string",
+  "price": 0,
+  "category": "string"
 }
 ```
 
@@ -47,11 +48,16 @@ The API documentation is available through Swagger UI at `/api-docs` when the ap
 ```
 book-library/
 ├── web/
-│   ├── controller/    # Request handlers
+│   ├── controller/   # Request handlers handle response 
 │   ├── entity/       # Database entities
 │   ├── middleware/   # Express middlewares
 │   ├── dto/          # Data transfer objects
+│   └── route/        # routing api
+│   └── enum/         # contain enums
+│   └── service/      # business logic
+│   └── docs/         # having config open api
 │   └── config/       # Configuration files
+│   app.ts            # file server dun app
 ├── docker-compose.yml
 └── Dockerfile
 ```
